@@ -1,12 +1,8 @@
 package com.orangelabs.rcs.ri.activities;
 
-import com.orangelabs.rcs.ri.R;
-import com.orangelabs.rcs.ri.R.layout;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import com.orangelabs.rcs.ri.R;
 
 public class DialActivity extends Activity {
 
