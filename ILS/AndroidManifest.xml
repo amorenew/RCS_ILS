@@ -27,12 +27,7 @@
 
         <!-- Main -->
         <activity android:name=".RI" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+                    </activity>
         <activity android:name=".AboutRI" />
 
         <!-- Intents API -->
@@ -302,9 +297,15 @@
         <activity android:name=".ipcall.IPCallSessionsList" />
         <activity android:name=".ipcall.IPCallList" />
         <activity android:name=".ipcall.IPCallView" />
+        <!--first splash -->
         <activity
             android:name="com.orangelabs.rcs.ri.activities.Splash"
             android:label="@string/title_activity_splash" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
         </activity>
         <activity
             android:name="com.orangelabs.rcs.ri.activities.DialActivity"
