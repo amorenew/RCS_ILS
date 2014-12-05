@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#FFF"
     android:orientation="vertical"
-    tools:context="com.orangelabs.rcs.ils.activities.LectureActivity" >
+    tools:context="com.orangelabs.rcs.ri.activities.LectureActivity" >
 
     <TextView
         android:id="@+id/textView1"
