@@ -27,7 +27,7 @@
 
         <!-- Main -->
         <activity android:name=".RI" >
-                    </activity>
+        </activity>
         <activity android:name=".AboutRI" />
 
         <!-- Intents API -->
@@ -199,6 +199,7 @@
 
         <!-- Geoloc sharing API -->
 
+
         <!-- Video sharing API -->
 
         <activity android:name=".sharing.video.TestVideoSharingApi" />
@@ -279,19 +280,23 @@
         <activity android:name=".ipcall.IPCallSessionsList" />
         <activity android:name=".ipcall.IPCallList" />
         <activity android:name=".ipcall.IPCallView" />
-        <!--first splash -->
+        <!-- first splash -->
         <activity
             android:name=".activities.Splash"
             android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name=".activities.DialActivity"
             android:label="@string/title_activity_dial" >
+        </activity>
+        <activity
+            android:name="com.orangelabs.rcs.ri.activities.LectureActivity"
+            android:label="@string/title_activity_lecture" >
         </activity>
     </application>
 
