@@ -1,319 +1,311 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
- android:versionCode="1"
- android:versionName="3.1.0"
- package="com.orangelabs.rcs.ri">
+    package="com.orangelabs.rcs.ri"
+    android:versionCode="1"
+    android:versionName="3.1.0" >
 
-    <uses-sdk android:minSdkVersion="8" android:targetSdkVersion="19" />
-	
-	<uses-permission android:name="android.permission.GET_TASKS"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
-	<uses-permission android:name="android.permission.CALL_PHONE"/>
-	<uses-permission android:name="android.permission.CAMERA"/>
-	<uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_CALL_LOG"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <application android:icon="@drawable/app_icon" android:label="@string/app_name">
+    <application
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name" >
 
-        <uses-library android:name="com.google.android.maps"/>
-        
-		<!-- Main -->
-        <activity android:name=".RI">
+        <!-- Main -->
+        <activity android:name=".RI" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AboutRI" />
 
-        <activity android:name=".AboutRI"/>
+        <!-- Intents API -->
 
-		<!-- Intents API -->
-        
-        <activity android:name=".intents.TestIntentsApi"/>
+        <activity android:name=".intents.TestIntentsApi" />
+        <activity android:name=".intents.IntentClients" />
+        <activity android:name=".intents.IntentApps" />
 
-        <activity android:name=".intents.IntentClients"/>
+        <!-- Service API -->
 
-        <activity android:name=".intents.IntentApps"/>
-        
-		<!-- Service API -->
-        
-        <activity android:name=".service.TestServiceApi"/>
+        <activity android:name=".service.TestServiceApi" />
+        <activity android:name=".service.ServiceStatus" />
+        <activity android:name=".service.RegistrationStatus" />
 
-        <activity android:name=".service.ServiceStatus"/>
-        
-        <activity android:name=".service.RegistrationStatus"/>
-        
         <!-- Contacts API -->
-        
-        <activity android:name=".contacts.TestContactsApi"/>
-        
-        <activity android:name=".contacts.JoynContactsList"/>
-        
-        <activity android:name=".contacts.OnlineContactsList"/>
-        
-        <activity android:name=".contacts.SupportedContactsList"/>
-        
-        <activity android:name=".contacts.ContactVCard"/>
-        
+
+        <activity android:name=".contacts.TestContactsApi" />
+        <activity android:name=".contacts.JoynContactsList" />
+        <activity android:name=".contacts.OnlineContactsList" />
+        <activity android:name=".contacts.SupportedContactsList" />
+        <activity android:name=".contacts.ContactVCard" />
+
         <!-- Capabilities API -->
 
-        <activity android:name=".capabilities.TestCapabilitiesApi"/>
+        <activity android:name=".capabilities.TestCapabilitiesApi" />
+        <activity android:name=".capabilities.RequestCapabilities" />
+        <activity android:name=".capabilities.MyCapabilities" />
+        <activity android:name=".capabilities.RequestAllCapabilities" />
+        <activity android:name=".capabilities.CapabilitiesList" />
+        <activity android:name=".capabilities.ExtensionsCapabilities" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
-        <activity android:name=".capabilities.RequestCapabilities"/>
+                <category android:name="android.intent.category.DEFAULT" />
 
-		<activity android:name=".capabilities.MyCapabilities"/>
-
-		<activity android:name=".capabilities.RequestAllCapabilities"/>
-		
-		<activity android:name=".capabilities.CapabilitiesList"/>
-
-		<activity android:name=".capabilities.ExtensionsCapabilities">
-			<intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.extensions"/>
-            </intent-filter>
-        </activity>		
-		
-		<!-- Messaging API -->
-		
-        <activity android:name=".messaging.TestMessagingApi"/>
-
-		<!-- File transfer API -->
-        
-        <activity android:name=".messaging.ft.TestFileTransferApi">
-			<intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-			    <action android:name="com.gsma.services.rcs.action.VIEW_FT"/>
+                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.extensions" />
             </intent-filter>
         </activity>
 
-        <activity android:icon="@drawable/ri_quick_ft_icon"
-            android:label="@string/label_quick_ft"
-        	android:name=".messaging.ft.InitiateFileTransfer">
-			<intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.file-transfer"/>
+        <!-- Messaging API -->
+
+        <activity android:name=".messaging.TestMessagingApi" />
+
+        <!-- File transfer API -->
+
+        <activity android:name=".messaging.ft.TestFileTransferApi" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcs.action.VIEW_FT" />
             </intent-filter>
-            
+        </activity>
+        <activity
+            android:name=".messaging.ft.InitiateFileTransfer"
+            android:icon="@drawable/ri_quick_ft_icon"
+            android:label="@string/label_quick_ft" >
             <intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="com.gsma.services.rcsaction.INITIATE_FT"/>                
-            </intent-filter>					
-		</activity>
-        
-		<receiver android:name=".messaging.ft.FileTransferInvitationReceiver">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.file-transfer" />
+            </intent-filter>
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.ft.action.NEW_FILE_TRANSFER"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcsaction.INITIATE_FT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".messaging.ft.FileTransferInvitationReceiver" >
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.ft.action.NEW_FILE_TRANSFER" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".messaging.ft.FileTransferResumeReceiver" >
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.ft.action.RESUME_FILE_TRANSFER" />
             </intent-filter>
         </receiver>
 
-		<receiver android:name="com.orangelabs.rcs.ri.messaging.ft.FileTransferResumeReceiver">
-            <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.ft.action.RESUME_FILE_TRANSFER"/>
-            </intent-filter>
-        </receiver>
-        
-        <activity android:name=".messaging.ft.ReceiveFileTransfer"/>
+        <activity android:name=".messaging.ft.ReceiveFileTransfer" />
+        <activity android:name=".messaging.ft.FileTransferList" />
 
-        <activity android:name=".messaging.ft.FileTransferList"/>
-        
         <!-- Chat API -->
-        
-        <activity android:name=".messaging.chat.TestChatApi">
-			<intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-			    <action android:name="com.gsma.services.rcs.action.VIEW_CHAT"/>
-            </intent-filter>            
-			<intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-			    <action android:name="com.gsma.services.rcs.action.VIEW_GROUP_CHAT"/>
-            </intent-filter>            
-		</activity>
 
-        <activity android:icon="@drawable/ri_quick_chat_icon"
-            android:label="@string/label_quick_chat"
-            android:name=".messaging.chat.InitiateSingleChat">
-			<intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.im-session"/>
-            </intent-filter>
-			<intent-filter>
-                <action android:name="com.gsma.services.rcs.action.INITIATE_CHAT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-		</activity>        
-        
-		<receiver android:name=".messaging.chat.SingleChatInvitationReceiver">
+        <activity android:name=".messaging.chat.TestChatApi" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.chat.action.NEW_CHAT"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcs.action.VIEW_CHAT" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcs.action.VIEW_GROUP_CHAT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".messaging.chat.InitiateSingleChat"
+            android:icon="@drawable/ri_quick_chat_icon"
+            android:label="@string/label_quick_chat" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.im-session" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.action.INITIATE_CHAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".messaging.chat.SingleChatInvitationReceiver" >
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.chat.action.NEW_CHAT" />
             </intent-filter>
         </receiver>
-        
-        <activity android:name=".messaging.chat.SingleChatView"/>
-				
-        <activity android:name=".messaging.chat.ChatList"/>
-        
-        <activity android:name=".messaging.chat.InitiateGroupChat">
-			<intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-			<intent-filter>
-                <action android:name="com.gsma.services.rcs.action.INITIATE_GROUP_CHAT"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-            </intent-filter>
-		</activity>        
 
-		<receiver android:name=".messaging.chat.GroupChatInvitationReceiver">
+        <activity android:name=".messaging.chat.SingleChatView" />
+        <activity android:name=".messaging.chat.ChatList" />
+        <activity android:name=".messaging.chat.InitiateGroupChat" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.chat.action.NEW_GROUP_CHAT"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.action.INITIATE_GROUP_CHAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".messaging.chat.GroupChatInvitationReceiver" >
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.chat.action.NEW_GROUP_CHAT" />
             </intent-filter>
         </receiver>
-		
-        <activity android:name=".messaging.chat.GroupChatView"/>
-                
-        <activity android:name=".messaging.chat.GroupChatList"/>
-        
-        <activity android:name=".messaging.geoloc.EditGeoloc" android:windowSoftInputMode="stateHidden"/> 
-        
-        <activity android:name=".messaging.geoloc.SelectGeoloc"/>
-        
-        <activity android:name=".messaging.geoloc.DisplayGeoloc"/>
-        
-        <activity android:name=".messaging.geoloc.ShowUsInMap"/>        
-        
-        <activity android:name=".messaging.chat.SendGroupFile"/>        
-        
+
+        <activity android:name=".messaging.chat.GroupChatView" />
+        <activity android:name=".messaging.chat.GroupChatList" />
+        <activity
+            android:name=".messaging.geoloc.EditGeoloc"
+            android:windowSoftInputMode="stateHidden" />
+        <activity android:name=".messaging.geoloc.SelectGeoloc" />
+        <activity android:name=".messaging.geoloc.DisplayGeoloc" />
+        <activity android:name=".messaging.geoloc.ShowUsInMap" />
+        <activity android:name=".messaging.chat.SendGroupFile" />
+
         <!-- Sharing API -->
-        
-        <activity android:name=".sharing.TestSharingApi"/>
+
+        <activity android:name=".sharing.TestSharingApi" />
 
         <!-- Image sharing API -->
-        
-        <activity android:name=".sharing.image.TestImageSharingApi"/>
 
-        <activity android:name=".sharing.image.InitiateImageSharing"/>
-        
-		<receiver android:name=".sharing.image.ImageSharingInvitationReceiver">
+        <activity android:name=".sharing.image.TestImageSharingApi" />
+        <activity android:name=".sharing.image.InitiateImageSharing" />
+
+        <receiver android:name=".sharing.image.ImageSharingInvitationReceiver" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.ish.action.NEW_IMAGE_SHARING"/>
+                <action android:name="com.gsma.services.rcs.ish.action.NEW_IMAGE_SHARING" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".sharing.image.ReceiveImageSharing"/>
-        
-        <activity android:name=".sharing.image.ImageSharingList"/>
-        
+        <activity android:name=".sharing.image.ReceiveImageSharing" />
+        <activity android:name=".sharing.image.ImageSharingList" />
+
         <!-- Geoloc sharing API -->
-        
-        <activity android:name=".sharing.geoloc.TestGeolocSharingApi"/>
 
-        <activity android:name=".sharing.geoloc.InitiateGeolocSharing"/>
-        
-		<receiver android:name=".sharing.geoloc.GeolocSharingInvitationReceiver">
+        <activity android:name=".sharing.geoloc.TestGeolocSharingApi" />
+        <activity android:name=".sharing.geoloc.InitiateGeolocSharing" />
+
+        <receiver android:name=".sharing.geoloc.GeolocSharingInvitationReceiver" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.gsh.action.NEW_GEOLOC_SHARING"/>
+                <action android:name="com.gsma.services.rcs.gsh.action.NEW_GEOLOC_SHARING" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".sharing.geoloc.ReceiveGeolocSharing"/>
-        
+        <activity android:name=".sharing.geoloc.ReceiveGeolocSharing" />
+
         <!-- Video sharing API -->
-        
-        <activity android:name=".sharing.video.TestVideoSharingApi"/>
 
-        <activity android:name=".sharing.video.InitiateVideoSharing"/>
-        
-		<receiver android:name=".sharing.video.VideoSharingInvitationReceiver">
+        <activity android:name=".sharing.video.TestVideoSharingApi" />
+        <activity android:name=".sharing.video.InitiateVideoSharing" />
+
+        <receiver android:name=".sharing.video.VideoSharingInvitationReceiver" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.vsh.action.NEW_VIDEO_SHARING"/>
+                <action android:name="com.gsma.services.rcs.vsh.action.NEW_VIDEO_SHARING" />
             </intent-filter>
         </receiver>
 
-        <activity android:name=".sharing.video.ReceiveVideoSharing"/>
-        
-        <activity android:name=".sharing.video.VideoSharingList"/>
-        
+        <activity android:name=".sharing.video.ReceiveVideoSharing" />
+        <activity android:name=".sharing.video.VideoSharingList" />
+
         <!-- MM session API -->
 
-        <activity android:name=".session.TestMultimediaSessionApi"/>
+        <activity android:name=".session.TestMultimediaSessionApi" />
+        <activity android:name=".session.InitiateMultimediaSession" />
 
-        <activity android:name=".session.InitiateMultimediaSession"/>
-        
-		<receiver android:name=".session.MultimediaSessionInvitationReceiver">
+        <receiver android:name=".session.MultimediaSessionInvitationReceiver" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.session.action.NEW_SESSION"/>
+                <action android:name="com.gsma.services.rcs.session.action.NEW_SESSION" />
+
                 <data android:mimeType="com.gsma.services.rcs/ext.sipdemo" />
-        		<category android:name="android.intent.category.LAUNCHER" />
-        		<category android:name="android.intent.category.DEFAULT" />
-	    	</intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
 
-        <activity android:name=".session.MultimediaSessionList"/>
-		
-        <activity android:name=".session.MultimediaSessionSettings"/>
-        
-        <activity android:name=".session.SendMultimediaMessage"/>
-        
-        <activity android:name=".session.MultimediaSessionView"/>
-        
-   		<receiver android:name=".session.MultimediaMessageReceiver">
+        <activity android:name=".session.MultimediaSessionList" />
+        <activity android:name=".session.MultimediaSessionSettings" />
+        <activity android:name=".session.SendMultimediaMessage" />
+        <activity android:name=".session.MultimediaSessionView" />
+
+        <receiver android:name=".session.MultimediaMessageReceiver" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.session.action.NEW_MESSAGE"/>
+                <action android:name="com.gsma.services.rcs.session.action.NEW_MESSAGE" />
+
                 <data android:mimeType="com.gsma.services.rcs/ext.sipdemo" />
-        		<category android:name="android.intent.category.LAUNCHER" />
-        		<category android:name="android.intent.category.DEFAULT" />
-		    	</intent-filter>
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </receiver>
-		
+
         <!-- IP call API -->
 
-        <activity android:name=".ipcall.TestIPCallApi">
-			<intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-			    <action android:name="com.gsma.services.rcs.action.VIEW_IPCALL"/>
-            </intent-filter>
-		</activity>
-		
-	 	<activity android:name=".ipcall.InitiateIPCall">
-			<intent-filter>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-			    <action android:name="com.gsma.services.rcs.action.INITIATE_IPCALL"/>
-            </intent-filter>
-	 	    
-			<intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.ip-voice-call"/>
-            </intent-filter>
-		</activity>
-		
-		<receiver android:name=".ipcall.IPCallInvitationReceiver">
+        <activity android:name=".ipcall.TestIPCallApi" >
             <intent-filter>
-		    	<action android:name="com.gsma.services.rcs.ipcall.action.NEW_CALL"/>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcs.action.VIEW_IPCALL" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ipcall.InitiateIPCall" >
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="com.gsma.services.rcs.action.INITIATE_IPCALL" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="vnd.android.cursor.item/com.gsma.services.rcs.ip-voice-call" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".ipcall.IPCallInvitationReceiver" >
+            <intent-filter>
+                <action android:name="com.gsma.services.rcs.ipcall.action.NEW_CALL" />
             </intent-filter>
         </receiver>
-	 	
-	 	<activity android:name=".ipcall.IPCallSessionsList"/>
-	 		 	
-	 	<activity android:name=".ipcall.IPCallList"/>
-	 	
-	 	<activity android:name=".ipcall.IPCallView"/>
-</application>
+
+        <activity android:name=".ipcall.IPCallSessionsList" />
+        <activity android:name=".ipcall.IPCallList" />
+        <activity android:name=".ipcall.IPCallView" />
+        <activity
+            android:name=".Splash"
+            android:label="@string/title_activity_splash" >
+        </activity>
+    </application>
 
 </manifest>
