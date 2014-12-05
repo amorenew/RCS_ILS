@@ -177,12 +177,6 @@
 
         <activity android:name=".messaging.chat.GroupChatView" />
         <activity android:name=".messaging.chat.GroupChatList" />
-        <activity
-            android:name=".messaging.geoloc.EditGeoloc"
-            android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".messaging.geoloc.SelectGeoloc" />
-        <activity android:name=".messaging.geoloc.DisplayGeoloc" />
-        <activity android:name=".messaging.geoloc.ShowUsInMap" />
         <activity android:name=".messaging.chat.SendGroupFile" />
 
         <!-- Sharing API -->
@@ -204,17 +198,6 @@
         <activity android:name=".sharing.image.ImageSharingList" />
 
         <!-- Geoloc sharing API -->
-
-        <activity android:name=".sharing.geoloc.TestGeolocSharingApi" />
-        <activity android:name=".sharing.geoloc.InitiateGeolocSharing" />
-
-        <receiver android:name=".sharing.geoloc.GeolocSharingInvitationReceiver" >
-            <intent-filter>
-                <action android:name="com.gsma.services.rcs.gsh.action.NEW_GEOLOC_SHARING" />
-            </intent-filter>
-        </receiver>
-
-        <activity android:name=".sharing.geoloc.ReceiveGeolocSharing" />
 
         <!-- Video sharing API -->
 
@@ -247,7 +230,6 @@
         </receiver>
 
         <activity android:name=".session.MultimediaSessionList" />
-        <activity android:name=".session.MultimediaSessionSettings" />
         <activity android:name=".session.SendMultimediaMessage" />
         <activity android:name=".session.MultimediaSessionView" />
 
@@ -299,7 +281,7 @@
         <activity android:name=".ipcall.IPCallView" />
         <!--first splash -->
         <activity
-            android:name="com.orangelabs.rcs.ri.activities.Splash"
+            android:name=".activities.Splash"
             android:label="@string/title_activity_splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -308,7 +290,7 @@
             
         </activity>
         <activity
-            android:name="com.orangelabs.rcs.ri.activities.DialActivity"
+            android:name=".activities.DialActivity"
             android:label="@string/title_activity_dial" >
         </activity>
     </application>

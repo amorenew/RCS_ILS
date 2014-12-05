@@ -1,13 +1,11 @@
 package com.orangelabs.rcs.ri.activities;
 
 import com.orangelabs.rcs.ri.R;
-import com.orangelabs.rcs.ri.R.layout;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.Menu;
 
 public class Splash extends Activity {
 
@@ -26,7 +24,7 @@ public class Splash extends Activity {
             @Override
             public void run() {
                 /* Create an Intent that will start the Menu-Activity. */
-                Intent mainIntent = new Intent(Splash.this,Menu.class);
+                Intent mainIntent = new Intent(Splash.this,DialActivity.class);
                 Splash.this.startActivity(mainIntent);
                 Splash.this.finish();
             }
